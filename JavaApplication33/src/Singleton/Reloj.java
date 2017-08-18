@@ -5,22 +5,26 @@
  */
 package Singleton;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 /**
  *
  * @author Karen
  */
 public class Reloj {
+    
 
-    private static Singleton instance;
+    private static Reloj instance;
     
     private Reloj()
     {
         
     }
     
-    public static Singleton getInstance()
+    public static Reloj getInstance()
     {
         if(instance == null)
         {
@@ -31,20 +35,37 @@ public class Reloj {
     }
     
     public String getHora (){
-     
-    Calendar calendario = Calendar.getInstance();
     
-     hora =calendario.get(Calendar.HOUR_OF_DAY);
-     minutos = calendario.get(Calendar.MINUTE);
-     segundos = calendario.get(Calendar.SECOND);   
+    Calendar calendario = Calendar.getInstance();
+           
+    
+     int hora =calendario.get(Calendar.HOUR_OF_DAY);
+     int minutos = calendario.get(Calendar.MINUTE);
+     int segundos = calendario.get(Calendar.SECOND);
+     
+        System.out.println(hora);
+        System.out.println(minutos);
+        System.out.println(segundos);
+        return null;
+     
 }
     
-    public String getFecha(){
+    public String getFecha (){
         
-        
+    DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+    Date today = Calendar.getInstance().getTime();
+    String reportDate = df.format(today);
+        System.out.println(reportDate);
+        return reportDate;
+    
     }
     
-    
-    
+    public static void main(String[] args) {
+        
+        Reloj reloj = Reloj.getInstance();
+        reloj.getHora();
+        reloj.getFecha();
+        
+    }
     
 }
