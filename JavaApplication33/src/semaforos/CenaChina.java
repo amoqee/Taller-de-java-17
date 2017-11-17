@@ -66,7 +66,11 @@ public class CenaChina implements Runnable{
         Semaphore Tenedores = new Semaphore (5);
         Semaphore Cuchillos = new Semaphore (4);
         
-        
+        //Semaphore sem = new Semaphore (100);
+        //Thread[] t = new Thread [150];
+        //for (int i = 0; i < 150; i++) {
+        // t[i] = new Thread(new Semaforo("Soy hilo" + i, sem));
+        //t[i].start();
         
         Thread t1 = new Thread(new CenaChina ("chino 1 esta cenando", Sillas, Tenedores, Cuchillos)); 
         Thread t2 = new Thread(new CenaChina("chino 2 esta cenando", Sillas, Tenedores, Cuchillos));
